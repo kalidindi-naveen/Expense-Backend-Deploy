@@ -7,13 +7,8 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-    parmeters{
+    parameters {
       string(name: 'appVersion',defaultValue: '1.0.0', description: 'Application Version?')
-    }
-    environment {
-      def appVersion=""
-      nexusUrl = "nexus-private.step-into-iot.cloud:8081"
-      repoName = "backend"
     }
     stages {
         stage('Print the version'){
