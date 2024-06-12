@@ -34,6 +34,13 @@ pipeline {
                 """
             }
         }
+        stage('Deploy'){
+            steps{
+                sh """
+                    terraform apply -auto-approve -var="app_version=${params.appVersion}"
+                """
+            }
+        }
     }
     post { 
         always { 
